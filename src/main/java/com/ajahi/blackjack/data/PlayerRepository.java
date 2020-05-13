@@ -1,6 +1,7 @@
 package com.ajahi.blackjack.data;
 
 import com.ajahi.blackjack.model.Card;
+import com.ajahi.blackjack.model.Player;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -10,16 +11,23 @@ import java.util.stream.Collectors;
 @Component
 public class PlayerRepository {
 
+
+    private final Player player;
+
     private int totalValueOfDrawnCards;
     private boolean blackjack;
     private boolean moreThanOneAce;
     private List<Card> cardsDrawn;
-
     public PlayerRepository () {
+        this.player = new Player();
         this.totalValueOfDrawnCards = 0;
         this.blackjack = false;
         this.moreThanOneAce = false;
         this.cardsDrawn = new ArrayList<>();
+    }
+
+    public boolean addCard(Card card) {
+        return cardsDrawn.add(card);
     }
 
     public boolean checkForAce(int i) {
@@ -27,18 +35,20 @@ public class PlayerRepository {
     }
 
     public void calculateCardValue() {
+        // TODO:hk Look into why Ace is being miscalculated.
+        int sum = 0;
         for (int i = 0; i < getCardsDrawn().size(); i++) {
             if (checkForAce(i) && isMoreThanOneAce())
-                totalValueOfDrawnCards += 1;
+                sum += 1;
             else {
                 if (checkForAce(i))
                     setMoreThanOneAce(true);
-                totalValueOfDrawnCards += getCardsDrawn().get(i).getSuitValue();
+                sum += getCardsDrawn().get(i).getSuitValue();
             }
         }
-        if (getTotalValueOfDrawnCards() == 21) {
+        if (getTotalValueOfDrawnCards() == 21)
             setBlackjack(true);
-        }
+        setTotalValueOfDrawnCards(sum);
     }
 
     public String getAllCards() {
@@ -73,5 +83,9 @@ public class PlayerRepository {
 
     public List<Card> getCardsDrawn() {
         return cardsDrawn;
+    }
+
+    public Player getPlayer() {
+        return player;
     }
 }
