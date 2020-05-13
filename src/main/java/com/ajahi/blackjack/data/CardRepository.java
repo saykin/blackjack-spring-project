@@ -14,7 +14,7 @@ public class CardRepository {
     private static final String[] SUIT = {"SPADES", "HEARTS", "CLUBS", "DIAMOND"};
     private static final String[] VALUE_NAMES = {"A", "2", "3", "4",
             "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
-    private final List<Card> deckOfCards = new ArrayList<>();;
+    private final List<Card> deckOfCards = new ArrayList<>();
     private List<Card> newShuffledDeckOfCards;
 //    private Gson gson = new Gson();
 
