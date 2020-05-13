@@ -3,14 +3,14 @@ package com.ajahi.blackjack.model;
 import java.time.LocalDate;
 import java.util.UUID;
 
+
 public class Player {
     private String playerName;
     private UUID playerId;
     private LocalDate playerRegistrationDate;
 
-
-    public Player(String playerName) {
-        this.playerName = playerName;
+    public Player(/*String playerName*/) {
+//        this.playerName = playerName;
         this.playerId = UUID.randomUUID();
         this.playerRegistrationDate = LocalDate.now();
     }
