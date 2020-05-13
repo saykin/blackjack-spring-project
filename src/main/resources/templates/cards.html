@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Listing all cards</title>
+</head>
+<body>
+    <div class="cards">
+        <div th:each="card : ${cards}">
+            <p th:text="${card.suit} + ' ' + ${card.value}"></p>
+        </div>
+    </div>
+</body>
+</html>
