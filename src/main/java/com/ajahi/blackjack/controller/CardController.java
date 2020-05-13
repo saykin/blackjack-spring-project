@@ -18,6 +18,11 @@ public class CardController {
     @Autowired
     private CardRepository cardRepository;
 
+    @RequestMapping("/")
+    public String displayHome() {
+        return "home";
+    }
+
     @RequestMapping("/cards")
     public String listDeck(ModelMap modelMap) {
         cardRepository.createDeck();
