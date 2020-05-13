@@ -15,6 +15,7 @@ public class CardRepository {
     private static final String[] VALUE_NAMES = {"A", "2", "3", "4",
             "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
     private final List<Card> deckOfCards = new ArrayList<>();;
+    private List<Card> newShuffledDeckOfCards;
 //    private Gson gson = new Gson();
 
     public void createDeck() {
@@ -23,16 +24,17 @@ public class CardRepository {
                 deckOfCards.add(new Card(suit, value));
             }
         }
+        newShuffledDeckOfCards = new ArrayList<>(deckOfCards);
     }
 
     public List<Card> getDeck() {
         return deckOfCards;
     }
 
-    public List<Card> getShuffledDeck() {
-        Collections.shuffle(deckOfCards);
-        return deckOfCards;
 
+    public List<Card> getShuffledDeck() {
+        Collections.shuffle(newShuffledDeckOfCards);
+        return newShuffledDeckOfCards;
     }
 
     /*private String getDeckString() {
