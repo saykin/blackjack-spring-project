@@ -35,8 +35,9 @@ public class PlayerRepository {
     }
 
     public void calculateCardValue() {
-        // TODO:hk Look into why Ace is being miscalculated.
         int sum = 0;
+        setMoreThanOneAce(false);
+        setBlackjack(false);
         for (int i = 0; i < getCardsDrawn().size(); i++) {
             if (checkForAce(i) && isMoreThanOneAce())
                 sum += 1;
