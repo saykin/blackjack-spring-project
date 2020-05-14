@@ -46,13 +46,13 @@ public class DealerRepository {
         if (hama.isBlackjack() && magnus.isBlackjack()) {
             test.add("Begge har Blackjack");
             test.add(String.format("%s | %d | %s",
-                    hama.getPlayer().getPlayerName(),
-                    hama.getTotalValueOfDrawnCards(),
-                    hama.getAllCards()));
-            test.add(String.format("%s | %d | %s",
                     magnus.getPlayer().getPlayerName(),
                     magnus.getTotalValueOfDrawnCards(),
                     magnus.getAllCards()));
+            test.add(String.format("%s | %d | %s",
+                    hama.getPlayer().getPlayerName(),
+                    hama.getTotalValueOfDrawnCards(),
+                    hama.getAllCards()));
             return test;
         }
 
@@ -77,13 +77,13 @@ public class DealerRepository {
             if (checkIfOver(magnus)) {
                 test.add(String.format("Vinner: %s", hama.getPlayer().getPlayerName()));
                 test.add(String.format("%s | %d | %s",
-                        hama.getPlayer().getPlayerName(),
-                        hama.getTotalValueOfDrawnCards(),
-                        hama.getAllCards()));
-                test.add(String.format("%s | %d | %s",
                         magnus.getPlayer().getPlayerName(),
                         magnus.getTotalValueOfDrawnCards(),
                         magnus.getAllCards()));
+                test.add(String.format("%s | %d | %s",
+                        hama.getPlayer().getPlayerName(),
+                        hama.getTotalValueOfDrawnCards(),
+                        hama.getAllCards()));
                 return test;
             }
         }
