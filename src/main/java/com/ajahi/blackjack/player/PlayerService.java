@@ -1,11 +1,9 @@
 package com.ajahi.blackjack.player;
 
 import com.ajahi.blackjack.Card.Card;
-import com.ajahi.blackjack.Card.CardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -14,7 +12,7 @@ public class PlayerService {
     private final PlayerRepository players;
 
     @Autowired
-    public PlayerService(PlayerRepository players, CardService cards) {
+    public PlayerService(PlayerRepository players) {
         this.players = players;
     }
 
