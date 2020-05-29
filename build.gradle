@@ -1,19 +1,41 @@
 plugins {
-    id 'java'
-    id 'idea'
-    id 'eclipse'
     id 'org.springframework.boot' version '2.2.7.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
 }
 
-group 'com.ajahi.cardshuffler'
-version '1.0-SNAPSHOT'
+group = 'com.ajahi.blackjack'
+version = '0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web:2.2.7.RELEASE'
-    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:2.2.7.RELEASE'
-    implementation 'com.google.code.gson:gson:2.8.0'
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.security:spring-security-test'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+    implementation 'org.springframework:spring-jdbc:'
+
+    implementation 'org.springframework.data:spring-data-rest-hal-browser'
+
+    implementation 'org.apache.tomcat:tomcat-dbcp:8.0.30'
+
+    implementation 'javax.validation:validation-api'
+
+    implementation 'org.postgresql:postgresql:42.2.12'
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+}
+
+test {
+    useJUnitPlatform()
 }
