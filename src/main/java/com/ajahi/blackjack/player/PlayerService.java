@@ -1,33 +1,26 @@
 package com.ajahi.blackjack.player;
 
-import com.ajahi.blackjack.Card.Card;
+import com.ajahi.blackjack.Card.CardService;
+import com.ajahi.blackjack.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.UUID;
-
 @Service
 public class PlayerService {
-
-    private final PlayerRepository players;
+    private final CardService cardService;
 
     @Autowired
-    public PlayerService(PlayerRepository players) {
-        this.players = players;
+    public PlayerService(CardService cardService) {
+        this.cardService = cardService;
     }
 
-    public void addCard(UUID playerId, Card card) {
-        Player player = players.findById(playerId).orElseThrow(NullPointerException::new);
-        player.addDrawnCard(card);
-        if (card.getRank() == 11 && !player.isHasAce()) {
-            player.setHasAce(true);
-            player.setCardValue(card.getRank());
-        } else {
-            player.setCardValue(card.getRank());
-        }
+
+
+    public void addCard() {
+
     }
 
-    public void saveInfo() {
-        Player player = new Player("Hama", "123456");
+    public void addPlayer(User user) {
+
     }
 }
