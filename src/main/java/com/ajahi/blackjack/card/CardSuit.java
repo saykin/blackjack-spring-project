@@ -1,4 +1,4 @@
-package com.ajahi.blackjack.Card;
+package com.ajahi.blackjack.card;
 
 public enum CardSuit {
     DIAMONDS ("Diamonds"),

@@ -1,6 +1,6 @@
 package com.ajahi.blackjack.player;
 
-import com.ajahi.blackjack.Card.Card;
+import com.ajahi.blackjack.card.Card;
 import com.ajahi.blackjack.user.User;
 
 import java.util.ArrayList;

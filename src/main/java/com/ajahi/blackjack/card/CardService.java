@@ -1,4 +1,4 @@
-package com.ajahi.blackjack.Card;
+package com.ajahi.blackjack.card;
 
 
 import org.springframework.stereotype.Service;

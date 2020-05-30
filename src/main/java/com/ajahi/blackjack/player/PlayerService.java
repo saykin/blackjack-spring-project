@@ -1,6 +1,6 @@
 package com.ajahi.blackjack.player;
 
-import com.ajahi.blackjack.Card.CardService;
+import com.ajahi.blackjack.card.CardService;
 import com.ajahi.blackjack.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
