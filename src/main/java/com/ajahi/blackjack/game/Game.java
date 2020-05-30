@@ -2,15 +2,30 @@ package com.ajahi.blackjack.game;
 
 import com.ajahi.blackjack.player.Player;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-@Entity
 public class Game {
-    @Id
-    private UUID gameSessionId;
-    private List<Player> players;
+    private final UUID sessionId;
+    private final String gameUrl;
+    private final List<Player> playerList;
 
+    public Game() {
+        this.sessionId = UUID.randomUUID();
+        this.gameUrl = sessionId.toString().substring(0,8);
+        playerList = new ArrayList<>();
+    }
+
+    public UUID getSessionId() {
+        return sessionId;
+    }
+
+    public String getGameUrl() {
+        return gameUrl;
+    }
+
+    public List<Player> getPlayerList() {
+        return playerList;
+    }
 }
