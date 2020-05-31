@@ -1,6 +1,7 @@
 package com.ajahi.blackjack.game;
 
 import com.ajahi.blackjack.player.Player;
+import com.devskiller.friendly_id.FriendlyId;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,9 +12,9 @@ public class Game {
     private final String gameUrl;
     private final List<Player> playerList;
 
-    public Game() {
-        this.sessionId = UUID.randomUUID();
-        this.gameUrl = sessionId.toString().substring(0,8);
+    public Game(UUID sessionId) {
+        this.sessionId = sessionId;
+        this.gameUrl = FriendlyId.toFriendlyId(sessionId);
         playerList = new ArrayList<>();
     }
 
@@ -27,5 +28,9 @@ public class Game {
 
     public List<Player> getPlayerList() {
         return playerList;
+    }
+
+    public boolean addPlayerToSession(Player player) {
+        return playerList.add(player);
     }
 }
