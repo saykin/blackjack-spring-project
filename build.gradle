@@ -23,6 +23,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
     implementation 'org.springframework:spring-jdbc:'
 
+    implementation 'com.devskiller.friendly-id:friendly-id-spring-boot-starter:1.1.0'
+
     implementation 'org.springframework.data:spring-data-rest-hal-explorer'
 
     implementation 'org.apache.tomcat:tomcat-dbcp:8.0.30'
