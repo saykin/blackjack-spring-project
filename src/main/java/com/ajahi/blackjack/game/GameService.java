@@ -33,10 +33,9 @@ public class GameService {
         return game.getGameUrl();
     }
 
-    public void addPlayerToGameSession(User user, String sessionUrl) {
-        System.out.println(sessionUrl);
+    public void addPlayerToGameSession(String username, String sessionUrl) {
         UUID sessionId = FriendlyId.toUuid(sessionUrl);
-        System.out.println(sessionId);
+        User user = userService.findUser(username);
         gameSessions.get(sessionId).addPlayerToSession(playerService.addPlayer(user));
     }
 
