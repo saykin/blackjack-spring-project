@@ -17,11 +17,17 @@ public class GameController {
         return String.format("Game session %s created", test);
     }
 
-    @GetMapping("/game-session/{url}")
-    public String openGameSession(@PathVariable String url) {
-        if (gameService.findGameSession(url))
+    @GetMapping("/{sessionUrl}")
+    public String openGameSession(@PathVariable String sessionUrl) {
+        if (gameService.findGameSession(sessionUrl))
             return "Game session found";
         else
             return "Game session not found";
+    }
+
+    @GetMapping("/{sessionUrl}/{username}")
+    public String addPlayer(@PathVariable String sessionUrl, @PathVariable String username) {
+        gameService.addPlayerToGameSession(username, sessionUrl);
+        return "Player added to session";
     }
 }
