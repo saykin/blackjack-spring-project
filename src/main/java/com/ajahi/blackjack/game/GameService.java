@@ -34,8 +34,7 @@ public class GameService {
     private Player createNewDealerForSession() {
         User user = new User();
         user.setUsername("House");
-        Player player = new Player(user);
-        return player;
+        return new Player(user);
     }
 
     public void addPlayerToGameSession(String username, String sessionUrl) {
