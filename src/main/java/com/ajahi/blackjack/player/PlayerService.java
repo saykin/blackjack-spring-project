@@ -21,7 +21,7 @@ public class PlayerService {
 
     }
 
-    public Player addPlayer(User user) {
+    public Player createPlayer(User user) {
         Player newPlayer = new Player(user);
         return newPlayer;
     }
