@@ -16,14 +16,13 @@ import java.util.UUID;
 @Table(name = "users")
 public class User {
     public static final PasswordEncoder PASSWORD_ENCODER = new BCryptPasswordEncoder(10);
-
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "pg-uuid")
-    private UUID userId;
-
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long userId;
+    @Column(unique = true)
+    private String email;
     @Column(unique = true)
     private String username;
-
     @NotNull
     @Size(min = 8)
     @JsonIgnore
@@ -33,6 +32,7 @@ public class User {
     @NotNull
     private int userRank;
     @NotNull
+    @Column(updatable = false)
     private LocalDate playerRegistrationDate;
 
     public User(){}
@@ -49,6 +49,14 @@ public class User {
         this.userPassword = PASSWORD_ENCODER.encode(userPassword);
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public void setUsername(String username) {
         this.username = username;
     }
@@ -61,7 +69,7 @@ public class User {
         this.userRank = userRank;
     }
 
-    public UUID getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
