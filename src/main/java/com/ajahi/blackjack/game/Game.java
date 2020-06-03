@@ -1,7 +1,6 @@
 package com.ajahi.blackjack.game;
 
 import com.ajahi.blackjack.player.Player;
-import com.devskiller.friendly_id.FriendlyId;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,11 +10,15 @@ public class Game {
     private final UUID sessionId;
     private final String gameUrl;
     private final List<Player> playerList;
+    private final int maxSessionPlayerSize;
+    private int sessionPlayerSize;
 
-    public Game(UUID sessionId) {
-        this.sessionId = sessionId;
-        this.gameUrl = FriendlyId.toFriendlyId(sessionId);
+    public Game() {
+        this.sessionId = UUID.randomUUID();
+        this.gameUrl = sessionId.toString().replaceAll("-", "").substring(0, 8);
         playerList = new ArrayList<>();
+        maxSessionPlayerSize = 7;
+        sessionPlayerSize = 0;
     }
 
     public UUID getSessionId() {
@@ -31,6 +34,11 @@ public class Game {
     }
 
     public boolean addPlayerToSession(Player player) {
-        return playerList.add(player);
+        if(sessionPlayerSize <= maxSessionPlayerSize) {
+            sessionPlayerSize++;
+            return playerList.add(player);
+        }
+        else
+            return false;
     }
 }
