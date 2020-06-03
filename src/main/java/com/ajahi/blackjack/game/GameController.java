@@ -12,7 +12,7 @@ public class GameController {
     GameService gameService;
 
     @GetMapping("/create-session")
-    public String createSession(Model model) {
+    public String createSession() {
         String test = gameService.createGameSession();
         return String.format("Game session %s created", test);
     }
