@@ -1,5 +1,5 @@
 This is a project to learn Spring, 
-there will be a lot of changes as I learn how this all works.
+there will be a lot of changes as I learn how all this works.
 
 1. At the moment I fell happy with the current structure of my code, that's why I have 
 stopped working on this project for a bit. At the moment I'm learning JS and React so
