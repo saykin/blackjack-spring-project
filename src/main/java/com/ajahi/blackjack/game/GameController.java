@@ -8,8 +8,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class GameController {
-    @Autowired
-    GameService gameService;
+    final GameService gameService;
+
+    public GameController(GameService gameService) {
+        this.gameService = gameService;
+    }
 
     @GetMapping("/create-session")
     public String createSession() {

@@ -1,0 +1,20 @@
+server:
+  port: 8080
+
+spring:
+  jpa:
+    database: postgresql
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    show-sql: true
+    generate-ddl: true
+    open-in-view: false
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/blackjack
+    username: postgres
+    password: admin

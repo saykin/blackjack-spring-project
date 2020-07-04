@@ -16,7 +16,6 @@ public class GameService {
     private final PlayerService playerService;
     private final Map<String, Game> gameSessions;
 
-    @Autowired
     public GameService(UserService userService, PlayerService playerService) {
         this.userService = userService;
         this.playerService = playerService;

@@ -11,7 +11,6 @@ public class PlayerService {
     private final CardService cardService;
     private final UserRepository userRepository;
 
-    @Autowired
     public PlayerService(CardService cardService, UserRepository userRepository) {
         this.cardService = cardService;
         this.userRepository = userRepository;
